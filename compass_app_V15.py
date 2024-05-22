@@ -9,9 +9,9 @@ import streamlit as st
 import pandas as pd
 import pickle
 import altair as alt
-import plotly.express as px
-import geopandas as gpd
-import json
+#import plotly.express as px
+#import geopandas as gpd
+#import json
 
 # Setze die Seitenkonfiguration
 st.set_page_config(
@@ -35,13 +35,13 @@ def load_model():
     return(loaded_model)
 
  
-@st.cache_data
-def load_data1():
-  with open("./1_sehr_hoch.json") as f:
-    json_data = json.load(f)
-    gpd_data = gpd.GeoDataFrame.from_features(json_data["features"]).set_index("name")
-    return gpd_data
-data1 = load_data1()
+#@st.cache_data
+#def load_data1():
+#  with open("./1_sehr_hoch.json") as f:
+#    json_data = json.load(f)
+ #   gpd_data = gpd.GeoDataFrame.from_features(json_data["features"]).set_index("name")
+ #   return gpd_data
+#data1 = load_data1()
     
 model = load_model()
 data = load_data()
@@ -832,19 +832,19 @@ def dashboard_page():
 
     
     
-    fig = px.choropleth_mapbox(data1,
-                          geojson=data1.geometry,
-                          locations=data1.index,
-                          color=(data1.Umsatzpotential),
-                          center={"lat": 51.1657, "lon": 10.4515},
-                          mapbox_style="open-street-map",
-                          zoom=7,
-                          color_continuous_scale=px.colors.sequential.YlGnBu,
-                          range_color=(min_value, max_value),  # Set the range for color scale
-                          color_continuous_midpoint=mid_value,
-                          opacity=0.5,width=1600, height=800)
+    #fig = px.choropleth_mapbox(data1,
+                         # geojson=data1.geometry,
+                          #locations=data1.index,
+                          #color=(data1.Umsatzpotential),
+                          #center={"lat": 51.1657, "lon": 10.4515},
+                          #mapbox_style="open-street-map",
+                          #zoom=7,
+                          #color_continuous_scale=px.colors.sequential.YlGnBu,
+                          #range_color=(min_value, max_value),  # Set the range for color scale
+                          #color_continuous_midpoint=mid_value,
+                          #opacity=0.5,width=1600, height=800)
 
-    st.plotly_chart(fig)
+    #st.plotly_chart(fig)
     
 
    
