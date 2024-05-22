@@ -1,3 +1,9 @@
+[tool.poetry]
+name = "renovierungsapp"
+version = "0.1.0"
+description = ""
+authors = ["EKEK5 <<>>"]
+
 [tool.poetry.dependencies]
 python = "^3.8"
 openpyxl = "^3.0.9"
