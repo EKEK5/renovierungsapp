@@ -26,18 +26,18 @@ st.set_page_config(
 
 @st.cache_data
 def load_data():
-    data = pd.read_csv("./data/Modernization_compass_train.csv")
+    data = pd.read_csv("./Modernization_compass_train.csv")
     return(data.dropna())
 
 @st.cache_resource
 def load_model():
-    loaded_model = pickle.load(open("./data/finalized_modernization_model.sav", "rb"))
+    loaded_model = pickle.load(open("./finalized_modernization_model.sav", "rb"))
     return(loaded_model)
 
  
 @st.cache_data
 def load_data1():
-  with open("./data/1_sehr_hoch.json") as f:
+  with open("./1_sehr_hoch.json") as f:
     json_data = json.load(f)
     gpd_data = gpd.GeoDataFrame.from_features(json_data["features"]).set_index("name")
     return gpd_data
@@ -122,7 +122,7 @@ def home_page():
         placeholder.text("                      ")
    
     with col2:
-        st.image('./data/vierfachverglasung.jpg', caption='Fensterfix-Fenster')
+        st.image('./vierfachverglasung.jpg', caption='Fensterfix-Fenster')
     
     st.button('**Dateneingabe!**', on_click=go_to_data_input, type="primary")
     st.button('Startseite', on_click=go_to_welcome)
